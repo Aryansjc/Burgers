@@ -74,7 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function createBurgerParticles() {
         const burgerParticles = document.querySelector('.burger-particles');
         const icons = ['🍔', '🧀', '🥬', '🍅', '🥪'];
-        const particlesCount = 50;
+        const particlesCount = 150;
+        
+        // Clear any existing particles
+        burgerParticles.innerHTML = '';
         
         for (let i = 0; i < particlesCount; i++) {
             const particle = document.createElement('span');
@@ -84,10 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
             particle.style.top = `${Math.random() * 100}%`;
             particle.style.fontSize = `${Math.random() * 20 + 10}px`;
             particle.style.opacity = `${Math.random() * 0.5 + 0.1}`;
-            particle.style.animation = `float ${Math.random() * 6 + 4}s ease-in-out infinite`;
+            particle.style.animation = `particle-float ${Math.random() * 6 + 4}s ease-in-out infinite`;
             particle.style.animationDelay = `${Math.random() * 5}s`;
             particle.style.position = 'absolute';
             particle.style.zIndex = '-1';
+            particle.style.transform = `rotate(${Math.random() * 360}deg)`;
             
             burgerParticles.appendChild(particle);
         }
