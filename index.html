@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BURGERS Hackathon</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/burger.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="burger-particles"></div>
+    
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span>BURGERS</span>
+                <svg class="burger-svg" viewBox="0 0 100 100" width="35" height="35">
+                    <!-- Bottom Bun -->
+                    <path d="M 25 65 C 25 80, 75 80, 75 65 L 75 55 C 75 70, 25 70, 25 55 Z" fill="#FF6B00" />
+                    
+                    <!-- Patty -->
+                    <path d="M 25 55 C 25 65, 75 65, 75 55 L 75 45 C 75 55, 25 55, 25 45 Z" fill="#8B4513" />
+                    
+                    <!-- Cheese -->
+                    <path d="M 20 45 C 20 55, 80 55, 80 45 L 80 42 C 80 52, 20 52, 20 42 Z" fill="#FFD700" />
+                    
+                    <!-- Lettuce -->
+                    <path d="M 20 42 C 20 48, 80 48, 80 42 L 80 40 C 80 46, 20 46, 20 40 Z" fill="#7CFC00" />
+                    
+                    <!-- Tomato -->
+                    <path d="M 25 40 C 25 45, 75 45, 75 40 L 75 37 C 75 42, 25 42, 25 37 Z" fill="#FF6347" />
+                    
+                    <!-- Top Bun -->
+                    <path d="M 30 37 C 30 25, 70 25, 70 37 L 70 34 C 70 46, 30 46, 30 34 Z" fill="#FF6B00" />
+                    
+                    <circle cx="40" cy="30" r="2" fill="#FFF5E6" />
+                    <circle cx="55" cy="28" r="2" fill="#FFF5E6" />
+                    <circle cx="60" cy="32" r="2" fill="#FFF5E6" />
+                    <circle cx="47" cy="32" r="2" fill="#FFF5E6" />
+                </svg>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#prizes">Prizes</a></li>
+                    <li><a href="#join">Join Now</a></li>
+                </ul>
+            </nav>
+            <div class="burger-menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="title">BURGERS <span>HACKATHON</span></h1>
+                <p class="tagline">Cook up the most delicious web app</p>
+                <div class="cta-buttons">
+                    <a href="#join" class="btn primary">Join Now</a>
+                    <a href="#about" class="btn secondary">Learn More</a>
+                </div>
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <p>Days</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+            </div>
+            <div class="burger-model-container">
+                <div class="burger">
+                    <img src="assets/image-removebg-preview.png" alt="Burger" class="burger-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2 class="section-title">About the Hackathon</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Join us for an exciting hackathon where teams compete to create the most delicious web apps! The BURGERS Hackathon challenges developers to cook up innovative solutions using any web development languages and frameworks of your choice.</p>
+                    <p>Get ready to layer your skills like a perfect burger - from frontend to backend, from design to deployment!</p>
+                </div>
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <div class="icon">🍔</div>
+                        <h3>Build</h3>
+                        <p>Create a web app using any tech stack you prefer</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">⏱️</div>
+                        <h3>48 Hours</h3>
+                        <p>Race against the clock to complete your project</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🏆</div>
+                        <h3>Win Prizes</h3>
+                        <p>Compete for amazing prizes and recognition</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>BURGERS</span>
+            </div>
+            <div class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#prizes">Prizes</a>
+                <a href="#join">Join Now</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/countdown.js"></script>
+    <script src="scripts/burger-animation.js"></script>
+</body>
+</html> 

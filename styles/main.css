@@ -1,0 +1,636 @@
+/* Main CSS for BURGERS Hackathon */
+:root {
+    --primary: #FF6B00;    /* Burger Bun Orange */
+    --secondary: #8B4513;  /* Burger Patty Brown */
+    --accent: #FFD700;     /* Cheese Yellow */
+    --background: #FFF5E6; /* Light Bun */
+    --text: #333333;       /* Dark Brown */
+    --white: #FFFFFF;
+    --light-gray: #F0F0F0;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --sesame: #FFF8E0;
+    --lettuce: #ADFF2F;
+    --tomato: #FF4500;
+    --cheese: #FFD700;
+    --patty: #8A3324;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    background-image: 
+        radial-gradient(circle at 20% 20%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 80% 40%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 40% 60%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 70% 80%, var(--sesame) 2px, transparent 3px);
+    background-size: 200px 200px;
+    color: var(--text);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Burger particles background */
+.burger-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+        radial-gradient(circle, var(--sesame) 1px, transparent 2px),
+        radial-gradient(circle, var(--lettuce) 1px, transparent 2px),
+        radial-gradient(circle, var(--tomato) 1px, transparent 2px),
+        radial-gradient(circle, var(--cheese) 1px, transparent 2px),
+        radial-gradient(circle, var(--patty) 1px, transparent 2px);
+    background-size: 100px 100px;
+    background-position: 0 0, 20px 20px, 40px 40px, 60px 60px, 80px 80px;
+    opacity: 0.15;
+    animation: burger-particles-float 60s linear infinite;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 245, 230, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 15px 0;
+    box-shadow: 0 2px 15px var(--shadow);
+    position: relative;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--cheese), var(--lettuce), var(--tomato), var(--patty), var(--primary));
+    opacity: 0.7;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo span {
+    font-family: 'Bungee', cursive;
+    font-size: 1.8rem;
+    color: var(--primary);
+    letter-spacing: 1px;
+}
+
+/* Burger SVG */
+.burger-svg {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.6s ease-in-out;
+}
+
+.logo:hover .burger-svg {
+    transform: rotate(360deg);
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.burger-line {
+    width: 25px;
+    height: 3px;
+    background-color: var(--secondary);
+    transition: all 0.3s;
+    border-radius: 3px;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 100px 20px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: 0.1;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 50px;
+    right: -100px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, var(--cheese) 0%, transparent 70%);
+    opacity: 0.1;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.title {
+    font-family: 'Bungee', cursive;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--secondary);
+    line-height: 1.1;
+}
+
+.title span {
+    display: block;
+    color: var(--primary);
+}
+
+.tagline {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: var(--text);
+    font-weight: 300;
+}
+
+.event-info {
+    margin-bottom: 30px;
+}
+
+.date-venue {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.info-item .icon {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.btn.primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn.primary:hover {
+    background-color: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.btn.secondary:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.countdown-container {
+    display: flex;
+    gap: 15px;
+    position: relative;
+    z-index: 5;
+}
+
+.countdown-item {
+    background-color: var(--white);
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 80px;
+    text-align: center;
+    box-shadow: 0 5px 15px var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primary);
+    opacity: 0.8;
+}
+
+.countdown-item:nth-child(1)::before {
+    background-color: var(--patty);
+}
+
+.countdown-item:nth-child(2)::before {
+    background-color: var(--lettuce);
+}
+
+.countdown-item:nth-child(3)::before {
+    background-color: var(--tomato);
+}
+
+.countdown-item:nth-child(4)::before {
+    background-color: var(--cheese);
+}
+
+.countdown-item span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.countdown-item p {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-top: 5px;
+}
+
+.burger-model-container {
+    flex: 1;
+    height: 500px;
+    position: relative;
+}
+
+#burger-model {
+    width: 100%;
+    height: 100%;
+}
+
+/* About Section */
+.about-section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to right, var(--lettuce), var(--cheese), var(--tomato), var(--patty), var(--primary));
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.section-title {
+    font-family: 'Bungee', cursive;
+    font-size: 2.5rem;
+    color: var(--secondary);
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.feature-cards {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+    min-width: 300px;
+}
+
+.feature-card {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 1;
+    min-width: 200px;
+    border-top: 4px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 30% 50%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 70% 30%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 90% 60%, var(--sesame) 2px, transparent 3px);
+    background-size: 100px 100px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--shadow);
+}
+
+.feature-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-family: 'Bungee', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary);
+    color: var(--white);
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 10%, var(--patty) 10px, transparent 11px),
+        radial-gradient(circle at 30% 40%, var(--patty) 8px, transparent 9px),
+        radial-gradient(circle at 70% 70%, var(--patty) 12px, transparent 13px),
+        radial-gradient(circle at 90% 20%, var(--patty) 9px, transparent 10px);
+    background-size: 200px 200px;
+    opacity: 0.1;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-logo {
+    text-align: center;
+}
+
+.footer-logo span {
+    font-family: 'Bungee', cursive;
+    font-size: 2rem;
+    color: var(--accent);
+}
+
+.footer-logo p {
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--accent);
+}
+
+.footer-nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-nav a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: var(--accent);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Burger particles */
+.burger-particle {
+    display: inline-block;
+    position: fixed;
+    z-index: -1;
+}
+
+/* Responsive Styling */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        order: 2;
+        margin-top: 30px;
+    }
+
+    .burger-model-container {
+        order: 1;
+    }
+
+    .date-venue {
+        justify-content: center;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+
+    .countdown-container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+}
