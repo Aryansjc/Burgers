@@ -1,0 +1,290 @@
+@keyframes burger-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.burger-icon {
+    animation: burger-pulse 2s infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-10px) rotate(3deg);
+    }
+    66% {
+        transform: translateY(5px) rotate(-3deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+.burger-model-container {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes burger-particles-float {
+    0% {
+        background-position: 0 0, 25px 25px, 12px 37px;
+    }
+    100% {
+        background-position: 50px 50px, 75px 75px, 62px 87px;
+    }
+}
+
+.burger-particles {
+    animation: burger-particles-float 60s linear infinite;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    animation: fade-in 1s ease-out forwards;
+}
+
+.title {
+    opacity: 0;
+    animation: fade-in 0.8s ease-out 0.2s forwards;
+}
+
+.tagline {
+    opacity: 0;
+    animation: fade-in 0.8s ease-out 0.4s forwards;
+}
+
+.promo-text {
+    opacity: 0;
+    animation: fade-in 0.8s ease-out 0.5s forwards, pulse-promo 2s infinite 1.3s;
+}
+
+.event-info {
+    opacity: 0;
+    animation: fade-in 0.8s ease-out 0.6s forwards;
+}
+
+.cta-buttons {
+    opacity: 0;
+    animation: fade-in 0.8s ease-out 0.8s forwards;
+}
+
+@keyframes pulse-promo {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02) translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@keyframes card-pop {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.feature-card {
+    opacity: 0;
+}
+
+.feature-card:nth-child(1) {
+    animation: card-pop 0.5s ease-out 0.2s forwards;
+}
+
+.feature-card:nth-child(2) {
+    animation: card-pop 0.5s ease-out 0.4s forwards;
+}
+
+.feature-card:nth-child(3) {
+    animation: card-pop 0.5s ease-out 0.6s forwards;
+}
+
+@keyframes icon-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.feature-card .icon {
+    display: inline-block;
+    animation: icon-bounce 2s ease-in-out infinite;
+}
+
+.feature-card:nth-child(1) .icon {
+    animation-delay: 0s;
+}
+
+.feature-card:nth-child(2) .icon {
+    animation-delay: 0.3s;
+}
+
+.feature-card:nth-child(3) .icon {
+    animation-delay: 0.6s;
+}
+
+@keyframes title-underline {
+    0% {
+        width: 0;
+        left: 50%;
+    }
+    100% {
+        width: 100px;
+        left: 50%;
+    }
+}
+
+.section-title::after {
+    animation: title-underline 1s ease-out forwards;
+}
+
+@keyframes burger-line-top {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(8px) rotate(0);
+    }
+    100% {
+        transform: translateY(8px) rotate(45deg);
+    }
+}
+
+@keyframes burger-line-middle {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes burger-line-bottom {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-8px) rotate(0);
+    }
+    100% {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+.burger-menu.active .burger-line:nth-child(1) {
+    animation: burger-line-top 0.5s ease forwards;
+}
+
+.burger-menu.active .burger-line:nth-child(2) {
+    animation: burger-line-middle 0.5s ease forwards;
+}
+
+.burger-menu.active .burger-line:nth-child(3) {
+    animation: burger-line-bottom 0.5s ease forwards;
+}
+
+@keyframes button-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 107, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 0, 0);
+    }
+}
+
+.btn.primary {
+    animation: button-pulse 2s infinite;
+}
+
+.about-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.about-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes logo-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.logo:hover .burger-icon {
+    animation: logo-spin 1s ease-in-out;
+}
+
+@keyframes cooking-title-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cooking-title {
+    animation: cooking-title-appear 0.8s ease-out forwards;
+}
+
+.cooking-title::after {
+    animation: title-underline 0.8s ease-out 0.4s forwards;
+}
+
+@keyframes particle-float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(15px) rotate(-5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}

@@ -1,0 +1,965 @@
+:root {
+    --primary: #FF6B00;
+    --secondary: #8B4513;
+    --secondary-rgb: 139, 69, 19;
+    --accent: #FFD700;
+    --background: #FFF5E6;
+    --text: #333333;
+    --white: #FFFFFF;
+    --light-gray: #F0F0F0;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --sesame: #FFF8E0;
+    --lettuce: #ADFF2F;
+    --tomato: #FF4500;
+    --cheese: #FFD700;
+    --patty: #8A3324;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    background-image: 
+        radial-gradient(circle at 20% 20%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 80% 40%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 40% 60%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 70% 80%, var(--sesame) 2px, transparent 3px);
+    background-size: 200px 200px;
+    color: var(--text);
+    overflow-x: hidden;
+    position: relative;
+    padding-top: 80px;
+}
+
+.burger-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+        radial-gradient(circle, var(--sesame) 1px, transparent 2px),
+        radial-gradient(circle, var(--lettuce) 1px, transparent 2px),
+        radial-gradient(circle, var(--tomato) 1px, transparent 2px),
+        radial-gradient(circle, var(--cheese) 1px, transparent 2px),
+        radial-gradient(circle, var(--patty) 1px, transparent 2px);
+    background-size: 100px 100px;
+    background-position: 0 0, 20px 20px, 40px 40px, 60px 60px, 80px 80px;
+    opacity: 0.2;
+    animation: burger-particles-float 60s linear infinite;
+    pointer-events: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 245, 230, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 15px 0;
+    box-shadow: 0 2px 15px var(--shadow);
+    display: flex;
+    overflow: visible;
+    height: 80px;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--cheese), var(--lettuce), var(--tomato), var(--patty), var(--primary));
+    opacity: 0.7;
+}
+
+.hack-club-flag {
+    display: flex;
+    align-items: center;
+    z-index: 15;
+    transition: transform 0.3s ease;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.hack-club-flag:hover {
+    transform: scale(1.05);
+}
+
+.flag-logo {
+    height: 75px;
+    width: auto;
+    display: block;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    padding-left: 85px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: auto;
+}
+
+.logo span {
+    font-family: 'Bungee', cursive;
+    font-size: 1.8rem;
+    color: var(--primary);
+    letter-spacing: 1px;
+}
+
+.burger-svg {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.6s ease-in-out;
+}
+
+.logo:hover .burger-svg {
+    transform: rotate(360deg);
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    z-index: 110;
+}
+
+.burger-line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--secondary);
+    transition: all 0.3s ease;
+    border-radius: 3px;
+    position: absolute;
+}
+
+.burger-line:nth-child(1) {
+    top: 0;
+}
+
+.burger-line:nth-child(2) {
+    top: 10px;
+}
+
+.burger-line:nth-child(3) {
+    top: 20px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(100vh - 80px);
+    padding: 20px 20px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: 0.1;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 50px;
+    right: -100px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, var(--cheese) 0%, transparent 70%);
+    opacity: 0.1;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.title {
+    font-family: 'Bungee', cursive;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--secondary);
+    line-height: 1.1;
+}
+
+.title span {
+    display: block;
+    color: var(--primary);
+}
+
+.tagline {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: var(--text);
+    font-weight: 300;
+}
+
+.promo-text {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: var(--primary);
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-info {
+    margin-bottom: 30px;
+}
+
+.date-venue {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.info-item .icon {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.btn.primary {
+    background-color: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+.btn.primary:hover {
+    background-color: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.btn.secondary:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.burger-model-container {
+    flex: 1;
+    height: 500px;
+    position: relative;
+}
+
+#burger-model {
+    width: 100%;
+    height: 100%;
+}
+
+.about-section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to right, var(--lettuce), var(--cheese), var(--tomato), var(--patty), var(--primary));
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.section-title {
+    font-family: 'Bungee', cursive;
+    font-size: 2.5rem;
+    color: var(--secondary);
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.feature-cards {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+    min-width: 300px;
+}
+
+.feature-card {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 1;
+    min-width: 200px;
+    border-top: 4px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 30% 50%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 70% 30%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 90% 60%, var(--sesame) 2px, transparent 3px);
+    background-size: 100px 100px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--shadow);
+}
+
+.feature-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-family: 'Bungee', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+footer {
+    background-color: var(--secondary);
+    color: var(--white);
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 10%, var(--patty) 10px, transparent 11px),
+        radial-gradient(circle at 30% 40%, var(--patty) 8px, transparent 9px),
+        radial-gradient(circle at 70% 70%, var(--patty) 12px, transparent 13px),
+        radial-gradient(circle at 90% 20%, var(--patty) 9px, transparent 10px);
+    background-size: 200px 200px;
+    opacity: 0.1;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-logo {
+    text-align: center;
+}
+
+.footer-logo span {
+    font-family: 'Bungee', cursive;
+    font-size: 2rem;
+    color: var(--accent);
+}
+
+.footer-logo p {
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--accent);
+}
+
+.footer-nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-nav a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: var(--accent);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.burger-particle {
+    display: inline-block;
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    transform-origin: center;
+    transition: all 0.3s ease;
+}
+
+.burger-particle:hover {
+    transform: scale(1.2) rotate(10deg);
+    opacity: 0.9 !important;
+}
+
+@keyframes burger-particles-float {
+    0% {
+        background-position: 0 0, 25px 25px, 12px 37px;
+    }
+    100% {
+        background-position: 50px 50px, 75px 75px, 62px 87px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        order: 2;
+        margin-top: 30px;
+    }
+
+    .burger-model-container {
+        order: 1;
+    }
+
+    .date-venue {
+        justify-content: center;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 245, 230, 0.98);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        z-index: 90;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+    
+    .main-nav.active {
+        display: block;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .main-nav a {
+        font-size: 1.2rem;
+        padding: 12px 20px;
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .main-nav a:hover,
+    .main-nav a.active {
+        background-color: rgba(255, 107, 0, 0.1);
+    }
+    
+    .main-nav a::after {
+        display: none;
+    }
+    
+    .burger-menu {
+        display: flex;
+        z-index: 95;
+    }
+    
+    .burger-menu.active .burger-line:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+    
+    .burger-menu.active .burger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .burger-menu.active .burger-line:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .promo-text {
+        font-size: 1.1rem;
+        padding: 8px 12px;
+        text-align: center;
+    }
+
+    .hack-club-flag {
+        height: 60px;
+    }
+    
+    .flag-logo {
+        height: 60px;
+    }
+    
+    .nav-container {
+        padding-left: 65px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+}
+
+.who-section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.who-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.who-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to right, var(--cheese), var(--primary), var(--patty));
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.section-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 20px;
+    color: var(--text);
+    text-align: center;
+}
+
+.what-section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+}
+
+.what-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.what-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to right, var(--patty), var(--tomato), var(--lettuce));
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.section-text + .section-text {
+    margin-top: 15px;
+}
+
+.how-section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.how-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.how-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to right, var(--lettuce), var(--sesame), var(--primary));
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.help-section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+}
+
+.help-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.help-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to right, var(--primary), var(--cheese), var(--lettuce));
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.help-section .section-title {
+    font-size: 2.2rem;
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+.help-section .section-text a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background-color: rgba(255, 107, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.help-section .section-text a:hover {
+    background-color: rgba(255, 107, 0, 0.2);
+    color: #d95600;
+    text-decoration: underline;
+}
+
+.slack-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.slack-button {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.slack-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn.secondary.slack-button {
+    background-color: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.btn.secondary.slack-button:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .help-section .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+.cooking-cta {
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    position: relative;
+    text-align: center;
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--primary);
+    overflow: hidden;
+    background-image: 
+        radial-gradient(circle at 20% 20%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 80% 40%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 40% 60%, var(--sesame) 2px, transparent 3px),
+        radial-gradient(circle at 70% 80%, var(--sesame) 2px, transparent 3px);
+    background-size: 200px 200px;
+}
+
+.cooking-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--cheese), var(--lettuce), var(--tomato), var(--patty));
+    opacity: 1;
+}
+
+.cooking-title {
+    font-family: 'Bungee', cursive;
+    font-size: 2.2rem;
+    color: var(--secondary);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.cooking-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .cooking-title {
+        font-size: 1.8rem;
+    }
+    
+    .cooking-cta {
+        margin-bottom: 40px;
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cooking-title {
+        font-size: 1.5rem;
+    }
+}
