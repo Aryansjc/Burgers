@@ -47,16 +47,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: 
-        radial-gradient(circle, var(--sesame) 1px, transparent 2px),
-        radial-gradient(circle, var(--lettuce) 1px, transparent 2px),
-        radial-gradient(circle, var(--tomato) 1px, transparent 2px),
-        radial-gradient(circle, var(--cheese) 1px, transparent 2px),
-        radial-gradient(circle, var(--patty) 1px, transparent 2px);
-    background-size: 100px 100px;
-    background-position: 0 0, 20px 20px, 40px 40px, 60px 60px, 80px 80px;
-    opacity: 0.2;
-    animation: burger-particles-float 60s linear infinite;
+    opacity: 1;
     pointer-events: none;
 }
 
@@ -143,6 +134,17 @@ header::after {
 }
 
 .logo:hover .burger-svg {
+    transform: rotate(360deg);
+}
+
+.burger-logo {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.6s ease-in-out;
+    object-fit: contain;
+}
+
+.logo:hover .burger-logo {
     transform: rotate(360deg);
 }
 

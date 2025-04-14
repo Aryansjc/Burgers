@@ -350,6 +350,220 @@
     }
 }
 
+.resources-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.resources-list li {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed rgba(var(--secondary-rgb), 0.2);
+}
+
+.resources-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.resources-list strong {
+    font-size: 1.2rem;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.resources-list strong a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.resources-list strong a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+.resources-list p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text);
+    margin: 0;
+}
+
+.prize-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.prize-list li {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding: 12px 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prize-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.prize-list li strong {
+    color: var(--secondary);
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.note {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #777;
+    margin-top: 5px;
+}
+
+.special-reward {
+    margin-top: 25px;
+    padding: 15px 20px;
+    background-color: rgba(255, 215, 0, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid #FFD700;
+    animation: pulse-special 2s infinite;
+}
+
+.special-reward p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--secondary);
+    text-align: center;
+    margin: 0;
+}
+
+.special-reward strong {
+    color: var(--primary);
+}
+
+@keyframes pulse-special {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+    }
+}
+
+/* Time Requirements Styling */
+.time-requirements {
+    background: linear-gradient(to right bottom, rgba(255, 107, 0, 0.05), rgba(255, 215, 0, 0.1));
+    border-left: 5px solid var(--primary);
+    border-right: 5px solid var(--accent);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    animation: pulse-glow 3s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 10px 25px rgba(255, 107, 0, 0.1);
+    }
+    100% {
+        box-shadow: 0 15px 35px rgba(255, 107, 0, 0.3);
+    }
+}
+
+.time-requirement-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.time-requirement-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    min-width: 200px;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.time-requirement-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+.time-requirement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.time-requirement-card .patty-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: float 6s ease-in-out infinite;
+}
+
+.time-requirement-card h4 {
+    font-family: 'Bungee', cursive;
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.time-requirement-card p {
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.time-requirement-card .highlight {
+    background-color: rgba(255, 215, 0, 0.2);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.one-patty {
+    border: 2px solid rgba(var(--secondary-rgb), 0.2);
+}
+
+.two-patties {
+    border: 2px solid rgba(var(--secondary-rgb), 0.4);
+}
+
+.three-patties {
+    border: 2px solid rgba(var(--secondary-rgb), 0.6);
+}
+
+.time-note {
+    margin-top: 25px;
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+    text-align: center;
+    font-size: 1.1rem;
+}
+
 @media (max-width: 768px) {
     .requirements-container,
     .prizes-container {
@@ -408,5 +622,87 @@
     .back-button svg {
         width: 20px;
         height: 20px;
+    }
+    
+    .resources-list strong {
+        font-size: 1.1rem;
+    }
+    
+    .resources-list p {
+        font-size: 0.95rem;
+    }
+    
+    .time-requirement-container {
+        flex-direction: column;
+    }
+    
+    .time-requirement-card {
+        margin-bottom: 10px;
+    }
+    
+    .time-note {
+        font-size: 0.95rem;
+        padding: 12px 15px;
+    }
+}
+
+/* Winner Banner Styles (Moved from prizes.html) */
+.winner-banner {
+    background: linear-gradient(135deg, #FFD700, #FF6B00);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    max-width: 800px;
+}
+
+.winner-banner h2 {
+    font-family: 'Bungee', cursive;
+    font-size: 2rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.winner-trophy {
+    font-size: 4rem;
+    margin: 10px 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    display: inline-block;
+}
+
+/* Override for prize cards */
+.prize-card {
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.prize-card:hover {
+    transform: translateY(-15px) scale(1.05);
+}
+
+.winner-name {
+    font-weight: bold;
+    color: #FFD700;
+    position: relative;
+    display: inline-block;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .winner-banner {
+        padding: 12px 20px;
+        margin: 15px auto 30px;
+    }
+    
+    .winner-banner h2 {
+        font-size: 1.5rem;
+    }
+    
+    .winner-trophy {
+        font-size: 3rem;
     }
 } 

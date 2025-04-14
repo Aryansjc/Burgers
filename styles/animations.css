@@ -33,19 +33,6 @@
     animation: float 6s ease-in-out infinite;
 }
 
-@keyframes burger-particles-float {
-    0% {
-        background-position: 0 0, 25px 25px, 12px 37px;
-    }
-    100% {
-        background-position: 50px 50px, 75px 75px, 62px 87px;
-    }
-}
-
-.burger-particles {
-    animation: burger-particles-float 60s linear infinite;
-}
-
 @keyframes fade-in {
     0% {
         opacity: 0;
@@ -287,4 +274,8 @@
     100% {
         transform: translateY(0) rotate(0deg);
     }
+}
+
+.burger-particle {
+    animation: particle-float 6s ease-in-out infinite;
 }

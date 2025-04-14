@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function createBurgerParticles() {
         const burgerParticles = document.querySelector('.burger-particles');
         const icons = ['🍔', '🧀', '🥬', '🍅', '🥪'];
-        const particlesCount = 100;
+        const particlesCount = 50; 
         
         burgerParticles.innerHTML = '';
         
@@ -91,8 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
             particle.textContent = icons[Math.floor(Math.random() * icons.length)];
             particle.style.left = `${Math.random() * 100}%`;
             particle.style.top = `${Math.random() * 100}%`;
-            particle.style.fontSize = `${Math.random() * 25 + 15}px`;
-            particle.style.opacity = `${Math.random() * 0.6 + 0.2}`;
+            particle.style.fontSize = `${Math.random() * 20 + 12}px`;
+            particle.style.opacity = `${Math.random() * 0.3 + 0.1}`; // Reduced opacity
             particle.style.animation = `particle-float ${Math.random() * 6 + 4}s ease-in-out infinite`;
             particle.style.animationDelay = `${Math.random() * 5}s`;
             particle.style.position = 'absolute';
